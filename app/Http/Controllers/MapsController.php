@@ -35,7 +35,16 @@ class MapsController extends Controller
 		
 		$entidad = $this->entidad->find($id);
 		$establecimientos= $this->establecimiento->entidad($id )->get();
-		return view('mapas.show', compact('entidad', 'establecimientos'));
+		if($establecimientos->count()!=0){
+	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lon, ['zoom' => 8,'marker' => false]);
+			foreach ($establecimientos as $establecimiento ) {
+				Mapper::marker($establecimiento->lat, $establecimiento->lon, ['title' => $establecimiento->nombre_de_la_unidad]);
+
+			}
+		$mapa=Mapper::render();	
+		}	
+
+		return view('mapas.show', compact('entidad', 'establecimientos', 'mapa'));
 	//	return response()->json($establecimientos);
 
 
@@ -50,22 +59,33 @@ class MapsController extends Controller
 		$establecimientos = $this->establecimiento->entidad($id)->tipoInstitucion($cveInstitucion)->nivelAtencion($nivelAtencion)->estatus($status)->get();
 
 		if($establecimientos->count()!=0){
-	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lon, ['zoom' => 7,'marker' => false]);
+	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lat,
+            [
+            	'zoom' => 8,
+                'draggable' => false,
+                'marker' => false,
+                'center' => false,
+            ]);
 			foreach ($establecimientos as $establecimiento ) {
-				Mapper::marker($establecimiento->lat, $establecimiento->lon, ['title' => $establecimiento->nombre_de_la_unidad]);
+			   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>';
+    			Mapper::informationWindow($establecimiento->lat, $establecimiento->lon, $content);
 
 			}
+
+			$mapa=Mapper::render();
 		
 		}
-		return view('mapas.show', compact('entidad', 'establecimientos', 'mapper'));
+		return view('mapas.show', compact('entidad', 'establecimientos', 'mapa'));
 
 	}
 
 	public function pintaMapa(){
 //configuaración
 		
-Mapper::map(52.381128999999990000, 0.470085000000040000)->marker(53.381128999999990000, -1.470085000000040000, ['markers' => ['symbol' => 'circle', 'scale' => 1000, 'animation' => 'DROP']]);		
-
+Mapper::map(40, -100, ['zoom' => 4, 'marker' => false]);
+Mapper::informationWindow(40, -99, ['hello']);
+Mapper::informationWindow(41, -98, ['hello']);
+Mapper::informationWindow(42, -97, ['hello']);
 
 		return view('mapas.mapa', compact('map'));
 	}	

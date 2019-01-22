@@ -27,34 +27,31 @@
 
         {!! Form::label('status_de_operacion', 'Estatus', ["class" => "control-label"]) !!}
       </div>
-
-     
-
-   </div>
-
-   <div class="row">
-    <div class="input-field col s6 right">
+      <div class="input-field col s3 right">
       <button type="submit" class="btn">Buscar</button>
     </div>
-  </div>
+</div>
+
+   
   {!! Form::close() !!}
 </div>
 
      
-      @if($establecimientos->count() > 1)         
+      @if($establecimientos->count() > 1 )         
      
 <div class="row">
-      <div class="col s12 m8 l9">
-                <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+      <div class="col s12 m12 l12">
+                <ul class="collapsible popout" data-collapsible="accordion">
                   <li>
-                    <div class="collapsible-header ">Mapas</div>
+                    <div class="collapsible-header active"><i class="mdi-social-mood"></i>Mapas</div>
                     <div class="collapsible-body">
-                      <div style="width: 700px; height: 500px;">
-   
-                      {!! Mapper::render() !!}
-
-                        </div>  
-     
+                      <div class="row">
+                        
+                      <div style="width: 800px; height: 300px; ">
+                        {!! $mapa !!}
+                      </div>  
+                      
+                    </div>
 
                     </div>
                   </li>
