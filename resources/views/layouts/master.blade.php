@@ -46,8 +46,8 @@
                     </ul>
                 </div>
               </nav>
-              
-              @include('layouts/menu')
+            @include('layouts/menu')              
+       
 
                 <!-- CSSdropdown -->
                
