@@ -14,9 +14,7 @@
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MapsController@index');
 
 Auth::routes();
 
