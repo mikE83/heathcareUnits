@@ -13,7 +13,7 @@ class EstablecimientoSalud extends Model
 
     public function scopeEntidad($query, $clave)
     {
-        if($clave <> 99)
+        if($clave != 99)
         return $query->where('clave_de_la_entidad', $clave);
     }
 

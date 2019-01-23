@@ -23,7 +23,7 @@ class MapsController extends Controller
 	public function index()
 	{
 
-		$entidades = $this->entidad->orderBy('clave_elector', 'ASC')->get();
+		$entidades = $this->entidad->orderBy('id_entidad', 'ASC')->get();
 		return view('mapas.index', compact('entidades'));
 	}
 
@@ -32,9 +32,14 @@ class MapsController extends Controller
 
 	public function show($id)
 	{
-		
+		if ($id != 99){
 		$entidad = $this->entidad->find($id);
 		$establecimientos= $this->establecimiento->entidad($id )->get();
+		}
+		if ($id == 99){
+		$entidad = $this->entidad->find($id);
+		$establecimientos= $this->establecimiento->all();
+		}	
 		if($establecimientos->count()!=0){
 	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lon, ['zoom' => 8,'marker' => false]);
 			foreach ($establecimientos as $establecimiento ) {
@@ -56,8 +61,10 @@ class MapsController extends Controller
 		$cveInstitucion=$request->input('clave_de_la_institucion');
 		$nivelAtencion= $request->input('nivel_atencion');
 		$status=$request->input('status_de_operacion');
-		$establecimientos = $this->establecimiento->entidad($id)->tipoInstitucion($cveInstitucion)->nivelAtencion($nivelAtencion)->estatus($status)->get();
-
+		if ($id == 99)
+			$establecimientos = $this->establecimiento->tipoInstitucion($cveInstitucion)->nivelAtencion($nivelAtencion)->estatus($status)->get();
+		if ($id != 99)
+			$establecimientos = $this->establecimiento->entidad($id)->tipoInstitucion($cveInstitucion)->nivelAtencion($nivelAtencion)->estatus($status)->get();
 		if($establecimientos->count()!=0){
 	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lat,
             [
@@ -65,9 +72,11 @@ class MapsController extends Controller
                 'draggable' => false,
                 'marker' => false,
                 'center' => false,
+                'eventBeforeLoad' => 'console.log("before load");'
             ]);
 			foreach ($establecimientos as $establecimiento ) {
-			   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>';
+			   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>'.
+			   				'<br> Consultorios'.$establecimiento->total_de_consultorios.'</br>'.'<br> Camas'.$establecimiento->total_de_camas.'</br>'.'<b> '.$establecimiento->estatus_de_operacion. '</b>';
     			Mapper::informationWindow($establecimiento->lat, $establecimiento->lon, $content);
 
 			}
