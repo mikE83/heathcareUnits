@@ -38,12 +38,14 @@ class MapsController extends Controller
 		}
 		if ($id == 99){
 		$entidad = $this->entidad->find($id);
-		$establecimientos= $this->establecimiento->all();
+		$establecimientos= $this->establecimiento->tipoInstitucion('IMSS');
 		}	
 		if($establecimientos->count()!=0){
 	    	Mapper::map($establecimientos->first()->lat, $establecimientos->first()->lon, ['zoom' => 8,'marker' => false]);
 			foreach ($establecimientos as $establecimiento ) {
-				Mapper::marker($establecimiento->lat, $establecimiento->lon, ['title' => $establecimiento->nombre_de_la_unidad]);
+				if ($establecimiento->lat !='' or $establecimiento->lon !='' ){
+				   Mapper::marker($establecimiento->lat, $establecimiento->lon);
+				}
 
 			}
 		$mapa=Mapper::render();	
@@ -74,11 +76,13 @@ class MapsController extends Controller
                 'center' => false,
                 'eventBeforeLoad' => 'console.log("before load");'
             ]);
-			foreach ($establecimientos as $establecimiento ) {
-			   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>'.
-			   				'<br> Consultorios'.$establecimiento->total_de_consultorios.'</br>'.'<br> Camas'.$establecimiento->total_de_camas.'</br>'.'<b> '.$establecimiento->estatus_de_operacion. '</b>';
+		foreach ($establecimientos as $establecimiento ) {
+		  if ($establecimiento->lat !='' or $establecimiento->lon !='' ){
+		   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>'.
+			   				'<br> Consultorios'.$establecimiento->total_de_consultorios.'</br>'.'<br> Camas'.$establecimiento->total_de_camas.'</br>'.'<b> '.$establecimiento->estatus_de_operacion.'-id'.$establecimiento->id.'</b>';
     			Mapper::informationWindow($establecimiento->lat, $establecimiento->lon, $content);
 
+			}
 			}
 
 			$mapa=Mapper::render();

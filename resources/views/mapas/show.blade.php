@@ -38,7 +38,9 @@
 
      
       @if($establecimientos->count() > 1 )         
-     
+      <div class="row">
+      {{$establecimientos->count()}}
+      </div>
 <div class="row">
       <div class="col s12 m10 l10">
                 <ul class="collapsible" data-collapsible="accordion">
