@@ -1,5 +1,5 @@
 	<head>
-		<title>Instituo Mexicano del Seguro Social</title>
+		<title>Gobierno de la Republica</title>
 		<!-- start: META -->
 		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

@@ -12,19 +12,7 @@
             </li>
             
         
-        <li>
-                 <a href="{{ URL::to('/ambulances') }}" class="cyan-text">
-                <i class="mdi-maps-local-shipping"></i>
-                    <span>Ambulancias</span>
-                </a>
-        </li>
-        
-           <li class="cyan-text">
-         <a href="index.html" class="cyan-text">
-                <i class="mdi-file-folder-shared"></i>
-                    <span>Trabajadores</span>
-        </a>
-            </li>
+
         
         
             <li>

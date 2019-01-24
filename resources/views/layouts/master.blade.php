@@ -24,10 +24,10 @@
           <header id="header" class="page-topbar">
             <!-- start: NAVBAR HEADER -->
             <div class="navbar-fixed">
-              <nav class="light-green darken-3">
+              <nav class="red darken-4">
                 <div class="nav-wrapper">
                     <ul class="left">                      
-                      <li><h1 class="logo-wrapper"><a class="brand-logo darken-1"><img src="{{ asset('/image/logo_ss.svg') }}" alt="IMSS"/></a><span class="logo-text">IMSS</span></h1></li>
+                      <li><h1 class="logo-wrapper"><a class="brand-logo darken-1">Sistema Único de Salud</a><span class="logo-text">Sistema Único de Salud</span></h1></li>
                     </ul>
 
                    
@@ -74,7 +74,7 @@
             <!-- start: FOOTER -->
       <footer class="page-footer  light-green darken-3">
     <div class="footer-copyright">
-        <span>Copyright © 2019 <a class="grey-text text-lighten-4" href="http://salud.cdmx.gob.mx" target="_blank">Instituto Mexicano del Seguro Social</a> Derechos reservados.</span>
+        <span>Copyright © 2019 <a class="grey-text text-lighten-4" href="http://salud.cdmx.gob.mx" target="_blank">Gobierno de la republica</a> Derechos reservados.</span>
         
   </footer>
 

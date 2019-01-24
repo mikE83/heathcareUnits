@@ -78,7 +78,7 @@ class MapsController extends Controller
             ]);
 		foreach ($establecimientos as $establecimiento ) {
 		  if ($establecimiento->lat !='' or $establecimiento->lon !='' ){
-		   $content = '<b>' . $establecimiento->nombre_de_la_unidad . '</b>'.
+		   $content = '<b>' .$establecimiento->clave_de_la_institucion.'-'.$establecimiento->nombre_de_la_unidad . '</b>'.
 			   				'<br> Consultorios'.$establecimiento->total_de_consultorios.'</br>'.'<br> Camas'.$establecimiento->total_de_camas.'</br>'.'<b> '.$establecimiento->estatus_de_operacion.'-id'.$establecimiento->id.'</b>';
     			Mapper::informationWindow($establecimiento->lat, $establecimiento->lon, $content);
 

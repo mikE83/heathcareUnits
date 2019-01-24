@@ -28,7 +28,8 @@
         {!! Form::label('status_de_operacion', 'Estatus', ["class" => "control-label"]) !!}
       </div>
       <div class="input-field col s3 right">
-      <button type="submit" class="btn waves-effect waves-light light-green darken-4">Buscar</button>
+      <button type="submit" class="btn waves-effect waves-light red darken-4
+">Buscar</button>
     </div>
 </div>
 
