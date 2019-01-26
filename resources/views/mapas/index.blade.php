@@ -18,11 +18,11 @@
                       <br> {{strtoupper($entidad->id_entidad)}}
                       <br>
                        <b>Total Consultorios </b>
-                       <b>Total Camas </b> 
+                       <b>Total Camas </b>
                     </p>
                     <a href="{{url('imss/mapas/'.$entidad->id_entidad)}}" class="secondary-content"><i class="mdi-content-send"></i></a>
-                  </li>    
-            @endforeach     
+                  </li>
+            @endforeach
                 </ul>
 
               </div>
