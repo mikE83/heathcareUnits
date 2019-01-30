@@ -43,35 +43,18 @@
       {{$establecimientos->count()}}
       </div>
 <div class="row">
-      <div class="col s12 m10 l10">
-                <ul class="collapsible" data-collapsible="accordion">
-                  <li>
-                    <div class="collapsible-header active"><i class="mdi-maps-local-hospital"></i>Ubicaciones</div>
-                    <div class="collapsible-body">
-                      
-                        
-                      <div style="width: 700px; height: 450px; margin: 0 auto;">
+      <div class="col s12 m5 l5">
+                
+              <div style="width: 500px; height: 450px; margin: 0 auto;">
                         {!! $mapa !!}
                       </div>  
-                      
-              
+        </div>  
+         <div class="col s12 m6 l6">            
+               @include('mapas._lista', ['establecimientos'=> $establecimientos ] ) 
+          </div>     
 
-                    
-                  </li>
-                  <li>
-                    <div class="collapsible-header ">Lista Hospitales</div>
-                    <div class="collapsible-body">
-                      
-     
-                  @include('mapas._lista', ['establecimientos'=> $establecimientos ] ) 
-    
-                    
-                    </div>
-                  </li>
-                  
-                </ul>
-              </div>
-            </div>
+  </div>
+            
       @endif           
       
      
