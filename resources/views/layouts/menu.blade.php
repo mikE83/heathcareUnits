@@ -5,7 +5,7 @@
        
         
             <li>
-                   <a href="{{ URL::to('/imss/mapas') }}" class="cyan-text">
+                   <a href="{{ URL::to('/susmx/mapas') }}" class="cyan-text">
                     <i class="mdi-social-public"></i>
                     <span>Inicio</span>
                 </a>
@@ -15,12 +15,7 @@
 
         
         
-            <li>
-                   <a href="{{ URL::to('/imss/mapas') }}" class="cyan-text">
-                    <i class="mdi-social-public"></i>
-                    <span>Ubicaciones</span>
-                </a>
-            </li>
+           
  
       </ul>
     </div>

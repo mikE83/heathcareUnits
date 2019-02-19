@@ -7,7 +7,7 @@
   </div>
 
   <div class="row">
-    {!! Form::open(['url' => '/imss/mapas/buscar/'.$entidad->id_entidad, 'method' => 'post'] ) !!}
+    {!! Form::open(['url' => '/susmx/mapas/buscar/'.$entidad->id_entidad, 'method' => 'post'] ) !!}
     {{ csrf_field() }}
     <div class="row">
       

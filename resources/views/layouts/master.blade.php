@@ -72,7 +72,7 @@
 	</section>
     
             <!-- start: FOOTER -->
-      <footer class="page-footer  light-green darken-3">
+      <footer class="page-footer  red darken-4">
     <div class="footer-copyright">
         <span>Copyright © 2019 <a class="grey-text text-lighten-4" href="http://salud.cdmx.gob.mx" target="_blank">Gobierno de la republica</a> Derechos reservados.</span>
         

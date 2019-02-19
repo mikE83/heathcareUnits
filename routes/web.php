@@ -26,10 +26,11 @@ Route::get('/ambulances/{$id}/edit', 'AmbulanceController@edit')->name('ambulanc
 Route::get('/ambulances/{$id}/delete', 'AmbulanceController@delete')->name('ambulanceDelete');
 
 
-Route::group(['prefix' => 'imss'], function() {
+Route::group(['prefix' => 'susmx'], function() {
 
 	Route::get('/mapas', 'MapsController@index');
 	Route::get('mapas/{id}', 'MapsController@show')->name('mapasShow');
  	Route::post('/mapas/buscar/{id}', 'MapsController@search')->name('buscar');
  	Route::get('/mapa/demo', 'MapsController@pintaMapa');
-    });
+	
+});

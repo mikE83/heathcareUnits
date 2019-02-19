@@ -20,7 +20,7 @@
 
                     <li class="collection-item dismissable" style="touch-action: pan-y;">
                     {{strtoupper($entidad->entidad)}}
-                    <a href="{{url('imss/mapas/'.$entidad->id_entidad)}}" class="secondary-content"><i class="mdi-content-send"></i></a>
+                    <a href="{{url('susmx/mapas/'.$entidad->id_entidad)}}" class="secondary-content"><i class="mdi-content-send"></i></a>
                   </li>
             @endforeach
                 </ul>

@@ -30,7 +30,7 @@
 
                                                     <td class="">
                                                        
-                                                        <a href="{{url('imss/mapas/'.$establecimiento->id.'/show')}}" class="btn-floating btn-large waves-effect waves-light light-green darken-3">+</a>
+                                                        <a href="{{url('susmx/mapas/'.$establecimiento->id.'/show')}}" class="btn-floating btn-large waves-effect waves-light red darken-4">+</a>
                                                         
                                                     </td>
                                                 </tr>
